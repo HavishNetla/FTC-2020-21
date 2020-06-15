@@ -1,39 +1,49 @@
 package org.firstinspires.ftc.teamcode.subsystems
 
 class SubsystemHandler {
-    private val subsystems = mutableListOf<Subsystem>()
+	private val subsystems = mutableListOf<Subsystem>()
 
-    fun addSubsystem(subsystem: Subsystem) {
-        subsystems.add(subsystem)
-    }
+	fun add(system: Subsystem) {
+		subsystems.add(system)
+	}
 
-    fun onInit() {
-        for(s in subsystems) {
-            s.onInit()
-        }
-    }
+	fun onInit() {
+		for (sub in subsystems) {
+			if (sub.on) {
+				sub.privateOnInit()
+			}
+		}
+	}
 
-    fun onInitLoop() {
-        for(s in subsystems) {
-            s.onInitLoop()
-        }
-    }
+	fun initLoop() {
+		for (sub in subsystems) {
+			if (sub.on) {
+				sub.privateInitLoop()
+			}
+		}
+	}
 
-    fun onMount() {
-        for(s in subsystems) {
-            s.onMount()
-        }
-    }
+	fun onMount() {
+		for (sub in subsystems) {
+			if (sub.on) {
+				sub.privateOnMount()
+			}
+		}
+	}
 
-    fun update() {
-        for(s in subsystems) {
-            s.update()
-        }
-    }
+	fun update() {
+		for (sub in subsystems) {
+			if (sub.on) {
+				sub.privateUpdate()
+			}
+		}
+	}
 
-    fun onStop() {
-        for(s in subsystems) {
-            s.onStop()
-        }
-    }
+	fun onStop() {
+		for (sub in subsystems) {
+			if (sub.on) {
+				sub.privateOnStop()
+			}
+		}
+	}
 }

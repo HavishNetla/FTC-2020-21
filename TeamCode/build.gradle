@@ -25,7 +25,8 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'org.openftc:rev-extensions-2:1.2'
-
+    implementation 'com.acmerobotics.roadrunner:core:0.5.1'
+    implementation 'com.acmerobotics.dashboard:dashboard:0.3.8'
     // https://mvnrepository.com/artifact/org.apache.commons/commons-math3
     implementation project(path: ':RobotLib')
 }
