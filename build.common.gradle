@@ -37,6 +37,7 @@ android {
     }
 
     defaultConfig {
+        multiDexEnabled true
         signingConfig signingConfigs.debug
         applicationId 'com.qualcomm.ftcrobotcontroller'
         minSdkVersion 19
@@ -100,11 +101,20 @@ android {
         jni.srcDirs = []
         jniLibs.srcDir rootProject.file('libs')
     }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
 }
 
 repositories {
     flatDir {
         dirs rootProject.file('libs')
     }
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
 }
 apply from: 'build.release.gradle'
